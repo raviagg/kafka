@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kafka
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: kafka
+    targetRevision: 26.5.0
+
+    helm:
+      values: |
+        image:
+          repository: bitnami/kafka
+          tag: latest
+
+        replicaCount: 1
+
+        zookeeper:
+          replicaCount: 1
+
+        listeners:
+          client:
+            protocol: PLAINTEXT
+
+        autoCreateTopicsEnable: true
+
+        persistence:
+          enabled: false
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kafka
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
