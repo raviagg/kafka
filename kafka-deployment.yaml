@@ -38,7 +38,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name   # StatefulSet pod name: mykafka-0, mykafka-1, mykafka-2
         - name: KAFKA_CONTROLLER_QUORUM_VOTERS
-          value: "1@mykafka-0.mykafka.svc.cluster.local:9093,2@mykafka-1.mykafka.svc.cluster.local:9093,3@mykafka-2.mykafka.svc.cluster.local:9093"
+          value: "1@mykafka-0.mykafka.mykafka.svc.cluster.local:9093,2@mykafka-1.mykafka.mykafka.svc.cluster.local:9093,3@mykafka-2.mykafka.mykafka.svc.cluster.local:9093"
         - name: KAFKA_CONTROLLER_LISTENER_NAMES
           value: CONTROLLER
         - name: KAFKA_LISTENERS
