@@ -59,7 +59,7 @@ spec:
           value: "1"
         volumeMounts:
           - name: mykafka-data
-            mountPath: /var/lib/mykafka/data
+            mountPath: /var/lib/kafka/data
   volumeClaimTemplates:
   - metadata:
       name: mykafka-data
