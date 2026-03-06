@@ -22,7 +22,7 @@ spec:
         - sh
         - -c
         - |
-          export KAFKA_NODE_ID=${POD_NAME##*-}
+          export KAFKA_NODE_ID=$((${POD_NAME##*-}+1))
           echo "Kafka node id: $KAFKA_NODE_ID"
           /etc/confluent/docker/run
         ports:
