@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kafka
-  namespace: kafka
+  name: mykafka
+  namespace: mykafka
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kafka
+      app: mykafka
   template:
     metadata:
       labels:
-        app: kafka
+        app: mykafka
     spec:
       containers:
-      - name: kafka
+      - name: mykafka
         image: confluentinc/cp-kafka:latest
         env:
         - name: KAFKA_PROCESS_ROLES
